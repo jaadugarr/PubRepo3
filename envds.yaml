@@ -1,0 +1,42 @@
+environments:
+  - name: awork62395 Fix environment
+    type: Fix
+    description: The Fix environment of awork62395 for XO.Manage application
+    automated: false
+    vpn: Central
+    endpoints:
+      - name: AWORK
+        type: http
+        credentialsId: any
+        URL: 'https://app-fix-awork62395.crossover.com'
+        Login URL: 'https://app-fix-awork62395.crossover.com/x/login'
+      - name: XO-DB
+        type: mysql
+        credentialsId: xo-staging-db
+        ConnectionURL: 'jdbc:mysql://rds-ws-qa.crossover.com/pxo001_xo_fix_awork62395'
+        XO-DB: pxo001_xo_fix_awork62395
+        CPT-DB: pxo001_cpt_fix_awork62395
+      - name: CPT-DB
+        type: mysql
+        credentialsId: xo-staging-db
+        ConnectionURL: 'jdbc:mysql://rds-ws-qa.crossover.com/pxo001_xo_fix_awork62395'
+        XO-DB: pxo001_xo_fix_awork62395
+        CPT-DB: pxo001_cpt_fix_awork62395
+      - name: QA Helper Tool
+        type: http
+        URL: 'http://10.69.11.223:20324'
+      - name: AWORK-API
+        type: http
+        URL: 'https://api-fix-awork62395.crossover.com'
+      - name: Mailtrap
+        type: http
+        credentialsId: mailtrap
+        URL: 'https://mailtrap.io/inboxes/shared'
+        Login URL: 'https://mailtrap.io/signin'
+    variables:
+      e2e-phishing-test-file: 'https://xo-automation-uploads-crossover.s3.amazonaws.com/test-data/e2e-phishing-test-fix-awork62395.html'
+      qa-helper-env: awork62395
+      mailtrap-env: qa
+      url-after-logout: crossover.com/pages/testimonials
+      signature-image-file: >-
+        https://xo-automation-uploads-crossover.s3.amazonaws.com/documents/signatures.jpg
